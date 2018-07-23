@@ -1,0 +1,27 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+    - texlive-xetex
+    - texlive-latex-extra
+    - lmodern
+    - texlive-latex-recommended
+    - xzdec
+    - texlive-fonts-recommended
+script:
+- tlmgr init-usertree
+- tlmgr option repository ftp://tug.org/historic/systems/texlive/2015/tlnet-final
+- tlmgr update --all
+- tlmgr install etoolbox tcolorbox framed polyglossia hyperref pgf xcolor
+- xelatex szofttech.tex
+- xelatex szofttech.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: K6o/zBkpDC9XEMCcFIBU3a+uw4zevNg6UbO+WhpJ9NBZcino4YPSYVaOhol29uK8DMvgZCJTPDvk2rrGc2wOox5hdNxMizbUGfmmm/OIVzWAHUrfkFAL31QDSmqoLfhgiCAt19yxJjIJGf+6HKD+RIKtkgy5q/KBIzt1ZAX6oeXYWRtZ3fEaT0Ltzp3TJiq4Egzzy99zVw+Q9ttLmIYO9v/Q/4r3xM6CKgfrR/lBBTcW0I+Lu0RuUKaFsUs1CEYvP7MpwkYR0CfgD+sLD39PXAkoB2ff1btMETkjU+t+hVUuvkr5hiiey7AdZJf5QRJc+xbQldpssm7NkUMC44ej+AMXh95RzDTvVyFj0yLByaN8MMzt0dJocrQ3ukAQZxjYg1lwHwOaT6Y0/orxYgEKqVDMDv806GH2vX0Z4ntDzeCla4h3x74U/oVzGE3uaRXAXP6kAMsbuMzZ/nfJQfrjRLIzmUD60/q+DVSIeW4EBVXbQ8vgrffIRpCEtIlSyqeAD08wpdKseNO2R4uUYNwRWBOZshj+pveE4E2WYcygMLaIobm4louXkupsEbpBktcpPkD47/uUpL7hJjbroqbLiy812/jF6JErqWuSgCgYfdODb/NAQwhNGuh/LT/bfSxr5GF4q/YqX060qCM4SAYuNt6iHnLTKF/DPSYTfy+D/GI=
+  file: anal2.pdf
+  skip-cleanup: true
+  overwrite: true
+  on:
+    repo: bme-notes/anal2
