@@ -14,8 +14,8 @@ script:
 - tlmgr option repository ftp://tug.org/historic/systems/texlive/2015/tlnet-final
 - tlmgr update --all
 - tlmgr install etoolbox tcolorbox framed polyglossia hyperref pgf xcolor
-- xelatex szofttech.tex
-- xelatex szofttech.tex
+- xelatex anal2.tex
+- xelatex anal2.tex
 deploy:
   provider: releases
   api_key:
