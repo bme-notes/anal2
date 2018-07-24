@@ -1,7 +1,7 @@
 %% BME-Notes jegyzethez header
 %% Ha nem érted, mi történik itt, akkor inkább ne változtasd meg!
 %% A fájlok fordításához XeLaTeX-et kell használni
-\documentclass[]{article}
+\documentclass[dvipsnames]{article}
 \usepackage{lmodern}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -9,6 +9,8 @@
 \usepackage{listings}
 \usepackage{tcolorbox}
 \usepackage{etoolbox}
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{setspace}
 \usepackage{framed}
 \usepackage[a4paper,margin=2.5cm]{geometry}
@@ -28,6 +30,15 @@
 \newenvironment{definicio}[1]{\begin{shaded}\noindent\ignorespaces\textbf{\large Definíció: #1}\normalsize\\}{\end{shaded}\ignorespacesafterend}
 \newenvironment{bizonyitas}[1]{\begin{leftbar}\noindent\ignorespaces\textbf{\large Bizonyítás: #1}\normalsize\\}{\end{leftbar}\ignorespacesafterend}
 
+\definecolor{darkgreen}{HTML}{098905}
+
+\newcommand{\n}{\ensuremath{\textcolor{blue}{n}}}
+\renewcommand{\k}{\ensuremath{\textcolor{PineGreen}{k}}}
+\newcommand{\x}{\ensuremath{\textcolor{red}{x}}}
+\renewcommand{\u}{\ensuremath{\textcolor{darkgreen}{u}}}
+\renewcommand{\c}{\ensuremath{\textcolor{Sepia}{c}}}
+\newcommand{\q}{\ensuremath{\textcolor{SkyBlue}{q}}}
+\newcommand{\sumi}{\ensuremath{\sum_{\n= 0}^{\infty}}}
 
 \title{\huge\textsc{\the\cim}}
 \author{\the\szerzo}

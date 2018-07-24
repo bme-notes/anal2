@@ -1,0 +1,169 @@
+\renewcommand{\arraystretch}{1.2}
+
+\section{Képletgyűjtemény a II. zárthelyi dolgozathoz}
+
+\section*{$\sinh x$ és $\cosh x$}
+\begin{minipage}{0.5\textwidth}
+\begin{equation}
+\sinh \x = \frac{e^{\x} - e^{-\x}}{2}
+\end{equation}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{equation}
+\cosh \x = \frac{e^{\x} + e^{-\x}}{2}
+\end{equation}
+\end{minipage}
+
+\section*{Sorok, Taylor sor, hatványsorok}
+\subsection*{Taylor sor általában}
+
+\begin{equation}
+\sumi \frac{f^{(\n)}(x_0)}{\n!} \cdot (\x-x_0)^{\n}
+\end{equation}
+
+\subsection*{Nevezetes Taylor sorok}
+\begin{equation}
+e^{\x} = \sumi \frac{{\x}^{\n}}{\n!}
+\end{equation}
+\begin{equation}
+\ln \x = \sumi \frac{(-1)^{\n-1}}{\n} \cdot (\x-1)^{\n}
+\end{equation}
+\begin{equation}
+\cos \x = \sumi \frac{(-1)^{\n}}{(2\n)!} \cdot \x^{2\n}
+\end{equation}
+\begin{equation}
+\sin \x = \sumi \frac{(-1)^{\n}}{(2\n+1)!} \cdot \x^{2\n+1}
+\end{equation}
+\begin{equation}
+\cosh \x = \sumi \frac{1}{(2\n)!} \cdot \x^{2\n}
+\end{equation}
+\begin{equation}
+\sinh \x = \sumi \frac{1}{(2\n+1)!} \cdot \x^{2\n+1}
+\end{equation}
+
+\subsection*{Geometriai / mértani sor}
+Hatvány sorba fejtésénél használatos!
+\begin{equation}
+\sumi \c_1 \cdot \q^{\n} = \frac{\c_1}{1-\q};\ |\q| < 1
+\end{equation}
+
+\subsection*{Binomiális sor}
+\begin{equation}
+  (1+\u)^{\k} = \sumi \binom{\k}{\n} \cdot {\u}^{\n};\ |\u| < 1
+\end{equation}
+\begin{equation}
+  \binom{k}{n} = \frac{k \cdot (k-1) \cdot (k-2)\cdot ... \cdot (k-n+1)}{n!}
+\end{equation}
+
+\newpage
+
+\section*{Kétváltozós függvények analízise}
+\subsection*{Hesse mátrix}
+\begin{equation}
+  \det
+\begin{bmatrix}
+  f^{''}_{xx}(x_0;y_0) & f^{''}_{xy}(x_0;y_0) \\
+  f^{''}_{yx}(x_0;y_0) & f^{''}_{yy}(x_0;y_0)
+\end{bmatrix}
+= f^{''}_{xx} \cdot f^{''}_{yy} - f^{''}_{xy} \cdot  f^{''}_{yx}
+\end{equation}
+\begin{itemize}
+\item Ha 0, akkor további vizsgálat szükséges.
+\item Ha negatív, nyeregpont
+\item Ha pozitív:
+  \begin{itemize}
+  \item Ha $f^{''}_{xx} < 0$: lokális maximum
+  \item Ha $f^{''}_{xx} > 0$: lokális minimum
+  \end{itemize}
+\end{itemize}
+\subsection*{Érintősík egyenlete}
+\begin{equation}
+z = f(x_0;y_0) + f^{'}_x(x_0;y_0)(x-x_0) + f^{'}_y(x_0;y_0)(y-y_0)
+\end{equation}
+\subsubsection*{Érintősík normálvektora}
+Rendezzük 0-ra a fentit és az együtthatók adják rendre.
+
+\subsection*{Nem folytonos függvény parciális differenciálása adott pontban}
+
+\begin{equation}
+  f^{'}_x(x_0;y_0) = \lim_{t \rightarrow 0} \frac{f(x_0+t;y_0) - f(x_0;y_0)}{t}
+\end{equation}
+\begin{equation}
+  f^{'}_y(x_0;y_0) = \lim_{t \rightarrow 0} \frac{f(x_0;y_0+t) - f(x_0;y_0)}{t}
+\end{equation}
+
+\subsection*{Totális differenciálhatóság}
+
+\subsubsection*{UPDATE: egyszerűbben}
+Ha kevés pontért kér indoklást a feladat, akkor a varázsmondat így hangzik: $\exists \varepsilon > 0$ úgy, hogy $K_{\varepsilon}(x;y)$-ban léteznek $f^ {'}_x(x;y)$ és $f^{'}_y(x;y)$ parciális deriváltak, és azok folytonosak. \\
+Ahol kifejezetten nem folytonos a függvény, ott ez természetesen nem igaz.%\footnote{Elvileg a mondat igazságtartalma eléggé triviális, de férfiasan elismerem, hogy ötletem sincs, egyáltalán honnan szedtük ezt a megállapítást.}
+
+\subsubsection*{Teljeskörűen (nem valószínű, hogy kelleni fog a zh-ban)}
+
+$f(x;y)$ totálisan differenciálható, ha fennáll, hogy
+\begin{equation}
+  \lim_{(x;y) \rightarrow (x_0;y_0)} \frac{f(x;y) - \overbrace{\left[ f(x_0;y_0) + f^{'}_x(x_0;y_0)(x-x_0) + f^{'}_y(x_0;y_0)(y-y_0)  \right]}^{\text{Érintősík egyenlete}}}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} = 0
+\end{equation}
+Ha pedig totálisan differenciálható $\Rightarrow$ parciálisan is differenciálható. \emph{Fordítva nem igaz!!}
+
+\newpage
+
+\subsubsection*{Feladatmegoldás definíció alapján}
+
+$\forall \varepsilon > 0: \exists \delta > 0: P(x;y) \in$ vizsgált pont $\delta$ sugarú környezetének - azaz
+\[
+  \sqrt{(x-x_0)^2 + (y-y_0)^2} < \delta \text{,}
+\]
+akkor fennáll, hogy
+
+\begin{equation}
+  \left| \frac{f(x;y) - \left[ f(x_0;y_0) + f^{'}_x(x_0;y_0)(x-x_0) + f^{'}_y(x_0;y_0)(y-y_0)  \right]}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} \right| < \varepsilon
+\end{equation}
+\begin{itemize}
+\item Helyettesítsünk $x_0$ és $y_0$ értékeket, majd számoljuk ki a parciális deriváltakat.
+\item Vonjunk össze, rendezzünk.
+\item \emph{Polinom osztással} hozzuk ki belőle $(x-x_0)$-t és $(y-y_0)$-t és becsüljünk.
+  \[
+    |x-x_0| < \delta;\ |y-y_0| < \delta
+  \]
+\end{itemize}
+
+\subsection*{Iránymenti derivált}
+\subsubsection*{Keresés definícióval}
+\begin{equation}
+  \frac{\delta f(P_0)}{\delta \vec{v}} = \lim_{t \rightarrow 0} \frac{f(P_0 + t \cdot \vec{v_e}) - f(P_0)}{t}\ ,
+\end{equation}
+ahol:
+\begin{itemize}
+\item $P_0$ a vizsgált pont
+\item $\vec{v_e}$ annak az iránynak az egységnyi hosszú vektora, amiben a meredekséget keressük
+\end{itemize}
+\subsubsection*{Iránymenti deriválás gradiensvektorral}
+\begin{equation}
+  \frac{\delta f}{\delta \vec{v}} = \overbrace{
+    \begin{bmatrix}
+      f^{'}_x(x_0;y_0) \\
+      f^{'}_y(x_0;y_0) \\
+      \vdots
+    \end{bmatrix}}^{grad\ f} \cdot \vec{v}_e \ ,
+\end{equation}
+ahol
+\begin{itemize}
+\item $\vec{v}_e$ az egységnyi hosszúra rövidített irányvektor
+\end{itemize}
+\subsubsection*{Fontos megjegyzés maximális és minimális meredekség keresése}
+A gradiensvektor mindig a maximális meredekség irányába néz.
+
+\subsection*{Polárkoordinátás helyettesítés}
+Néha egy feladatban a határérték $y = mx$ helyettesítéssel nem jön ki. Ilyenkor a teendő:
+\[
+  x = r \cdot \cos \varphi;\ y = r \cdot \sin \varphi\ ,
+\]
+Ezt helyettesítsük, majd
+
+\begin{equation}
+\lim_{r \rightarrow \sqrt{x_0^2 + y_0^2}} \text{HELYETTESÍTÉS} = ?
+\end{equation}
+megoldandó. Általában korlátos dolgok jönnek ki.
+
+\end{document}
